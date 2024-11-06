@@ -1,12 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
 
-  # GET /articles or /articles.json
+  # GET /articles
   def index
     @articles = Article.all
   end
 
-  # GET /articles/1 or /articles/1.json
+  # GET /articles/:id
   def show
   end
 
@@ -15,22 +15,21 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
-  # GET /articles/1/edit
+  # GET /articles/:id/edit
   def edit
   end
 
-  # POST /articles or /articles.json
+  # POST /articles
   def create
     @article = Article.new(article_params)
-
     if @article.save
-      redirect_to @article, notice: "Article was successfully created." }
+      redirect_to @article, notice: "Article was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /articles/1 or /articles/1.json
+  # PATCH/PUT /articles/:id
   def update
       if @article.update(article_params)
         redirect_to @article, notice: "Article was successfully updated."
@@ -39,15 +38,13 @@ class ArticlesController < ApplicationController
       end
   end
 
-  # DELETE /articles/1 or /articles/1.json
+  # DELETE /articles/:id
   def destroy
     @article.destroy!
-    redirect_to articles_path, status: :see_other, notice: "Article was successfully destroyed." }
-    end
+    redirect_to articles_path, status: :see_other, notice: "Article was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
     end

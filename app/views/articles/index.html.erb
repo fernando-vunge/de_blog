@@ -19,8 +19,13 @@
       <tr>
         <th><%= article.title %></th>
         <th><%= article.description %></th>
-        <th><button type="button" class="btn btn-outline-secondary"><%= link_to "Show", article %></button></th>
-        <th><button type="button" class="btn btn-outline-secondary"><%= link_to "Edit", edit_article_path(article) %></button></th>
+        <th>
+          <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary"><%= link_to "Show", article%></button>
+            <button type="button" class="btn btn-outline-primary"><%= link_to "Edit", edit_article_path(article) %></button>
+            <%= button_to "Delete", @article, class: "btn btn-outline-primary", method: :delete %>
+          </div>
+        </th>
         
       </tr>
     <% end %>
