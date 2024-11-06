@@ -1,14 +1,30 @@
-<p style="color: green"><%= notice %></p>
-
+<% if notice %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+<%= notice %>
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% end %>
 <h1>Articles</h1>
 
-<div id="articles">
-  <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
-  <% end %>
-</div>
+<table class="table table-dark table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <th><%= article.title %></th>
+        <th><%= article.description %></th>
+        <th><button type="button" class="btn btn-outline-secondary"><%= link_to "Show", article %></button></th>
+        <th><button type="button" class="btn btn-outline-secondary"><%= link_to "Edit", edit_article_path(article) %></button></th>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New article", new_article_path %>
+<button><%= link_to "New article", new_article_path %></button>
