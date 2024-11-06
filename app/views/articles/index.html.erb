@@ -23,7 +23,7 @@
           <div class="btn-group" role="group" aria-label="Basic outlined example">
             <button type="button" class="btn btn-outline-primary"><%= link_to "Show", article%></button>
             <button type="button" class="btn btn-outline-primary"><%= link_to "Edit", edit_article_path(article) %></button>
-            <%= button_to "Delete", @article, class: "btn btn-outline-primary", method: :delete %>
+            <%= button_to "Delete", article, class: "btn btn-outline-primary", method: :delete %>
           </div>
         </th>
         

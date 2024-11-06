@@ -16,3 +16,13 @@
     letter-spacing: -1px;
     font-weight: bold;
 }
+
+#home-container {
+    margin-top: 25px;
+}
+
+.jumbotron {
+    padding: 30px;
+    font-weight: bolder;
+    background: url('../../assets/images/retro.jpg') center / cover no-repeat;
+}
